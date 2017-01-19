@@ -21,6 +21,7 @@ public class Main extends SimpleApplication {
 
     @Override
     public void simpleInitApp() {
+        // added comment
     }
 
     @Override
