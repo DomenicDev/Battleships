@@ -1,36 +1,34 @@
 package de.domenic.battleships;
 
+import de.domenic.battleships.appstates.GameAppState;
 import com.jme3.app.SimpleApplication;
-import com.jme3.material.Material;
-import com.jme3.math.ColorRGBA;
-import com.jme3.renderer.RenderManager;
-import com.jme3.scene.Geometry;
-import com.jme3.scene.shape.Box;
 
-/**
- * This is the Main Class of your Game. You should only do initialization here.
- * Move your Logic into AppStates or Controls
- * @author normenhansen
- */
 public class Main extends SimpleApplication {
 
     public static void main(String[] args) {
+        NetworkUtils.initSerializers();
+
         Main app = new Main();
         app.start();
     }
 
-    @Override
+    
+    @Override    
     public void simpleInitApp() {
-        // added comment
-    }
-
-    @Override
-    public void simpleUpdate(float tpf) {
-        //TODO: add update code
-    }
-
-    @Override
-    public void simpleRender(RenderManager rm) {
-        //TODO: add render code
-    }
+        setDisplayFps(false);
+        setDisplayStatView(false);
+        
+        // we use our own cam control
+        flyCam.setEnabled(false);    
+     
+        // we use a cleaner way to stop the game
+        inputManager.deleteMapping(INPUT_MAPPING_EXIT);
+        
+        // very important for network games
+        setPauseOnLostFocus(false); 
+        
+        // create gui and start the actual application
+       stateManager.attach(new GameAppState());
+    }   
+    
 }

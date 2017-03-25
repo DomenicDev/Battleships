@@ -1,0 +1,257 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<nifty>
+    
+    <useControls filename="nifty-default-controls.xml"/>
+    <useStyles filename="nifty-default-styles.xml"/>    
+    
+    <popup id="popupExit" childLayout="center" backgroundColor="#000a" width="50%" height="30%" visible="true" controller="de.domenic.battleships.gui.HudScreenController">
+        <panel id="GPanel0" childLayout="vertical" width="50%" style="nifty-panel-simple" height="30%">
+            <panel id="GPanel1" childLayout="center" width="*" x="233" y="36" style="nifty-panel-simple" height="69%">
+                <control name="label" id="GLabel0" width="*" x="184" y="48" text="Do you really want to exit?" height="50%" font="aurulent-sans-16.fnt"/>
+            </panel>
+            <panel id="GPanel2" childLayout="horizontal" width="*" style="nifty-panel-simple" height="30%">
+                <panel id="GPanel3" childLayout="center" width="50%" x="91" y="19" style="nifty-panel-simple" height="*">
+                    <control name="button" id="GButton0" childLayout="center" x="117" width="70%" y="16" label="Yes">
+                        <interact onClick="click(true)" />
+                    </control>
+                </panel>
+                <panel id="GPanel4" childLayout="center" width="50%" style="nifty-panel-simple" height="*">
+                    <control name="button" id="GButton1" childLayout="center" x="80" width="70%" y="19" label="No">
+                        <interact onClick="click(false)" />
+                    </control>
+                </panel>
+            </panel>
+        </panel>
+    </popup>
+    
+    
+    <popup id="test" childLayout="center">
+        <panel childLayout="center" width="100%" height="100%" backgroundColor="0xffff" />
+    </popup>
+        
+       
+    
+    
+    
+    
+    <screen id="empty" />
+    
+    <screen id="hud" controller="de.domenic.battleships.gui.HudScreenController">
+        <layer id="GLayer0" childLayout="center" width="" height="" backgroundColor="#f000">
+            <panel id="mainPanel" width="100%" height="100%" childLayout="vertical">
+                <panel id="statePanel" width="100%" height="10%" childLayout="center" style="nifty-panel-simple">
+                    <control id="stateLabel" name="label" width="100%" height="100%" align="center" valign="top" font="Interface/Fonts/HudFont.fnt" color="0x0fff" />
+                </panel>
+            </panel>
+        </layer>
+    </screen>
+    
+    <screen id="start" controller="de.domenic.battleships.gui.MainMenuScreenController">
+        <layer id="GLayer0" childLayout="center" width="" height="" backgroundColor="#f000">
+            <panel id="mainPanel" childLayout="vertical" width="100%" x="365" y="254" height="100%">
+               <panel id="GPanel13" childLayout="center" width="*" x="333" y="336"  height="30%">
+                <image id="GImage2" filename="Interface/Images/title.png" width="722px" x="408" y="81" height="143px"/>
+            </panel>  
+                <panel id="menuPanel" childLayout="vertical" visible="true" width="50%" height="*">
+                    <panel id="spacePanel1" childLayout="vertical" width="*" x="217" y="182" height="30%"/>
+                    <panel id="startGamePanel" childLayout="center" width="50%" height="*">
+                        <control name="button" id="startButton" childLayout="center" x="105" width="90%" y="22" label="Start Game" height="90%">
+                            <interact onClick="startGame()" />
+                        </control>
+                    </panel>
+                    <panel id="startNetworkGamePanel" childLayout="center" width="50%" height="*">
+                        <control name="button" id="networkGameButton" childLayout="center" x="96" width="90%" y="23" label="Host Network Game" height="90%">
+                            <interact onClick="hostNetworkGame()" />
+                        </control>
+                    </panel>
+                    <panel id="connectToGamePanel" childLayout="center" width="50%" height="*">
+                        <control name="button" id="connectToGameButton" childLayout="center" x="96" width="90%" y="23" label="Connect Network Game" height="90%">
+                            <interact onClick="connectToGame()" />                             
+                        </control>
+                    </panel>
+                    <panel id="creditsPanel" childLayout="center" width="50%" height="*">
+                        <control name="button" id="creditsButton" childLayout="center" width="90%" label="Credits" height="90%"/>
+                    </panel>
+                    <panel id="quitPanel" childLayout="center" width="50%" height="*">
+                        <control name="button" id="quitButton" childLayout="center" width="90%" label="Quit Game" height="90%">
+                            <interact onClick="quitGame()" />
+                        </control>
+                    </panel>
+                    <panel id="spacePanel2" childLayout="absolute" width="50%" height="23%"/>
+                </panel>
+            </panel>
+        </layer>
+    </screen>
+    
+    
+    
+    <screen id="singleplayerScreen" controller="de.domenic.battleships.gui.SingleplayerScreenController">
+        <layer id="GLayer2" childLayout="vertical">
+            <panel id="GPanel13" childLayout="center" width="*" x="333" y="336"  height="30%">
+                <image id="GImage2" filename="Interface/Images/title.png" width="722px" x="408" y="81" height="143px"/>
+            </panel>  
+            <panel id="GPanel14" childLayout="vertical" width="*"  height="*">
+                <panel id="enemyPanel" childLayout="horizontal" width="50%" align="left" height="*">
+                    <control name="label" id="GLabel0" width="50%" valign="top" text="Enemy" height="50px" font="Interface/Fonts/SitkaSubheading.fnt"/>
+                    <control name="radioButtonGroup" id="enemyGroup" childLayout="vertical" width="0px" height="0px"/>
+                    <panel id="GPanel17" childLayout="vertical" width="50%" valign="center" align="left" height="*">
+                        <panel childLayout="horizontal">
+                            <control name="radioButton" id="human" text="Human" valign="center" align="left" group="enemyGroup"/>
+                            <control name="label" text="Human" />
+                        </panel>
+                        <panel childLayout="horizontal">
+                            <control name="radioButton" id="computer" group="enemyGroup"/>
+                            <control name="label" text="Computer" />
+                        </panel>
+                    </panel>
+                </panel>
+                <panel id="scenarioPanel" childLayout="horizontal" width="50%"  height="*">
+                    <control name="radioButtonGroup" id="scenarioGroup" width="0px" height="0px"/>
+                    <panel id="GPanel19" childLayout="center" width="50%"  height="*">
+                        <control name="label" id="GLabel1" width="100px" valign="top" text="Scenario" height="50px" font="Interface/Fonts/SitkaSubheading.fnt"/>
+                    </panel>
+                    <panel id="GPanel20" childLayout="vertical" width="50%"  height="*">
+                        <panel childLayout="horizontal">
+                            <control name="radioButton" id="sea" x="64" y="46" group="scenarioGroup"/>
+                            <control name="label" text="Sea" />
+                        </panel>                        
+                    </panel>
+                </panel>                
+                <panel id="shootAnimationPanel" childLayout="horizontal" width="50%"  height="*">
+                    <panel id="GPanel22" childLayout="center" width="50%" x="176" y="62"  height="*">
+                        <control name="label" id="GLabel2" width="100%" x="116" y="43" text="Shoot Animations" height="50px" font="Interface/Fonts/SitkaSubheading.fnt"/>
+                    </panel>
+                    <panel id="GPanel23" childLayout="center" width="50%" align="left" height="*">
+                        <control name="checkbox" id="shootEffectsCheckBox" align="left" />
+                    </panel>
+                </panel>
+                <panel id="autoSetPanel" childLayout="horizontal" width="50%" height="*">
+                    <panel childLayout="center" width="50%" height="*">
+                        <control name="label" width="100%" text="Auto Set" height="50px" font="Interface/Fonts/SitkaSubheading.fnt" />
+                    </panel>
+                     <panel childLayout="center" width="50%" height="*" align="left">
+                        <control name="checkbox" id="autoSetCheckBox" align="left" />
+                    </panel>
+                </panel>
+                <panel id="startGamePanel" childLayout="center" width="50%"  height="30%">
+                    <control name="button" id="startGameButton" childLayout="center" x="180" width="76%" y="55" label="Start Game" height="56%">
+                        <interact onClick="startGame()" />
+                    </control>
+                </panel>
+            </panel>
+        </layer>
+    </screen>
+    
+    
+    
+    <screen id="hostMultiplayerScreen" controller="de.domenic.battleships.gui.HostGameScreenController">
+        <layer id="GLayer2" childLayout="vertical">
+            <panel id="GPanel13" childLayout="center" width="*" x="333" y="336"  height="30%">
+                <image id="GImage2" filename="Interface/Images/title.png" width="722px" x="408" y="81" height="143px"/>
+            </panel>  
+            <panel id="GPanel14" childLayout="vertical" width="*"  height="*">
+                <panel id="enemyPanel" childLayout="horizontal" width="50%" x="330" y="61"  align="left" height="*">
+                    <control name="label" id="GLabel0" width="50%" valign="center" text="Enemy" height="50px" font="Interface/Fonts/SitkaSubheading.fnt"/>
+                    
+                    <panel id="GPanel17" childLayout="vertical" width="50%"  align="left" height="*">
+                        <control id="networkPlayerLabel" name="label" text="" width="*" valign="center" align="left" height="50px" font="Interface/Fonts/SitkaSubheading.fnt" />                        
+                    </panel>
+                </panel>
+                <panel id="scenarioPanel" childLayout="horizontal" width="50%"  height="*">
+                    <control name="radioButtonGroup" id="scenarioGroup" width="0px" height="0px"/>
+                    <panel id="GPanel19" childLayout="center" width="50%"  height="*">
+                        <control name="label" id="GLabel1" width="100px" valign="top" text="Scenario" height="50px" font="Interface/Fonts/SitkaSubheading.fnt"/>
+                    </panel>
+                    <panel id="GPanel20" childLayout="vertical" width="50%"  height="*">
+                        <panel childLayout="horizontal">
+                            <control name="radioButton" id="sea" x="64" y="46" group="scenarioGroup"/>
+                            <control name="label" text="Sea" />
+                        </panel>                        
+                    </panel>
+                </panel>                
+                <panel id="shootAnimationPanel" childLayout="horizontal" width="50%"  height="*">
+                    <panel id="GPanel22" childLayout="center" width="50%" x="176" y="62"  height="*">
+                        <control name="label" id="GLabel2" width="100%" x="116" y="43" text="Shoot Animations" height="50px" font="Interface/Fonts/SitkaSubheading.fnt"/>
+                    </panel>
+                    <panel id="GPanel23" childLayout="center" width="50%" align="left" height="*">
+                        <control name="checkbox" id="shootEffectsCheckBox" align="left" />
+                    </panel>
+                </panel>
+                <panel id="autoSetPanel" childLayout="horizontal" width="50%" height="*">
+                    <panel childLayout="center" width="50%" height="*">
+                        <control name="label" width="100%" text="Auto Set" height="50px" font="Interface/Fonts/SitkaSubheading.fnt" />
+                    </panel>
+                     <panel childLayout="center" width="50%" height="*" align="left">
+                        <control name="checkbox" id="autoSetCheckBox" align="left" />
+                    </panel>
+                </panel>
+                <panel id="startGamePanel" childLayout="center" width="50%"  height="30%">
+                    <control name="button" id="startGameButton" childLayout="center" x="180" width="76%" y="55" label="Start Game" height="56%">
+                        <interact onClick="startGame()" />
+                    </control>
+                </panel>
+            </panel>
+        </layer>
+    </screen>
+    
+    <screen id="lobbyScreen" controller="de.domenic.battleships.gui.LobbyScreenController">
+        <layer id="GLayer2" childLayout="vertical">
+            <panel id="GPanel13" childLayout="center" width="*" x="333" y="336"  height="30%">
+                <image id="GImage2" filename="Interface/Images/title.png" width="722px" x="408" y="81" height="143px"/>
+            </panel>  
+            <panel id="GPanel14" childLayout="vertical" width="*"  height="30%">
+                <panel id="enemyPanel" childLayout="horizontal" width="50%" x="330" y="61"  align="left" height="*">
+                    <control name="label" id="GLabel0" width="50%" valign="center" text="Enemy" height="50px" font="Interface/Fonts/SitkaSubheading.fnt"/>
+                    <control id="networkPlayerLabel" name="label" text="" width="*" valign="center" align="left" height="50px" font="Interface/Fonts/SitkaSubheading.fnt" />                        
+                </panel>                
+            </panel>
+        </layer>
+    </screen>
+    
+    
+    <screen id="connectionScreen" controller="de.domenic.battleships.gui.ConnectionScreenController">
+        <layer id="GLayer0" childLayout="center">
+            <panel id="GPanel1" childLayout="vertical" width="100%" x="624" y="249"  height="100%">
+               <panel id="GPanel13" childLayout="center" width="*" x="333" y="336"  height="30%">
+                <image id="GImage2" filename="Interface/Images/title.png" width="722px" x="408" y="81" height="143px"/>
+            </panel>  
+                <panel id="GPanel3" childLayout="center" visible="true" width="*"  height="*">
+                    <panel id="GPanel4" childLayout="vertical" width="50%"  height="42%">
+                        <panel id="GPanel5" childLayout="horizontal" width="*"  valign="center" height="*">
+                            <panel id="GPanel9" childLayout="center" width="*"  height="*">
+                                <control name="label" id="GLabel0" width="*" text="Server address" height="*" font="Interface/Fonts/SitkaSubheading.fnt"/>
+                            </panel>
+                            <panel id="GPanel10" childLayout="center" width="50%"  height="*">
+                                <control name="textfield" id="addressTextField" width="*" text="localhost" height="90%"/>
+                            </panel>
+                        </panel>
+                        <panel id="GPanel6" childLayout="horizontal" width="*"  valign="center" height="*">
+                            <panel id="GPanel11" childLayout="center" width="*"  height="*">
+                                <control name="label" id="GLabel1" width="100px" x="88" y="22" text="Port" height="50px" font="Interface/Fonts/SitkaSubheading.fnt"/>
+                            </panel>
+                            <panel id="GPanel12" childLayout="center" width="*"  height="*">
+                                <control name="textfield" id="portTextField" text="5555" width="*" height="90%"/>
+                            </panel>
+                        </panel>
+                        <panel id="GPanel16" childLayout="horizontal" width="*"  height="*">
+                            <panel childLayout="center">
+                                <control name="button" id="cancelButton" childLayout="center" width="90%" label="Cancel" height="70%">
+                                    <interact onClick="cancel()" />
+                                </control>
+                            </panel>
+                            <panel childLayout="center">
+                                <control name="button" id="connectButton" childLayout="center" width="90%" label="Connect" height="70%">
+                                    <interact onClick="connect()" />
+                                </control>
+                            </panel>                            
+                        </panel>
+                    </panel>
+                </panel>
+            </panel>
+        </layer>
+    </screen>
+    
+    
+    
+    
+</nifty>
