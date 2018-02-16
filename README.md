@@ -1,3 +1,5 @@
+
+
 # Battleships
 Simple game made with jMonkeyEngine!
 
@@ -7,3 +9,5 @@ I hope you like it and I wish you fun playing this!
 
 Greetings
 Domenic
+
+![image](https://i.ytimg.com/vi/EFPGwbljZMQ/maxresdefault.jpg)
